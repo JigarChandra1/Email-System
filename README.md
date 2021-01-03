@@ -26,6 +26,7 @@ Install Node (v10.9.0) , npm, PostgresSQL (12.5)
 Created following DBs in PostgresSQL:
 1. email_system
 2. email_system_dev
+
 Migrate the dev DB using the command `sequelize db:migrate`
 Create a .env file using the .env.template file as a reference
 
