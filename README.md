@@ -2,7 +2,7 @@
 
  Assignment by TANG
 
-<h1> Problem Statement
+<h1> Problem Statement <h1>
 
 Create an Rest API service that does the following:
 
@@ -13,9 +13,9 @@ Create an Rest API service that does the following:
 5. Update email status API should override the current status of email and mark the status as specified in the input.
 6. Remove email API should "soft-remove" the email address from the system. It shouldn't delete the email address permanently.
 
-<h1> Setup
+<h1>Setup<h1>
 
-<h2> 1. Locally
+<h2>1. Locally<h2>
 
 **Prequisites**
 
@@ -27,15 +27,15 @@ Created following DBs in PostgresSQL:
 Migrate the dev DB using the command `sequelize db:migrate`
 Create a .env file using the .env.template file as a reference
 
-<h2> 2. On Heroku
+<h2>2. On Heroku<h2>
 
 Connect the git repo to a new Heroku app
 Provision an add-on for PostgresSQL
 
-<h1> Running the app
+<h1>Running the app<h1>
 
 Run command `npm run dev`
 
-<h1> Running tests
+<h1>Running tests<h1>
 
 Run command `npm run test`
