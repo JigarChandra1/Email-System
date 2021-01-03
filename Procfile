@@ -1,0 +1,1 @@
+release: sequelize db:migrate
