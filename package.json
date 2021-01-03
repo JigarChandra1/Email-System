@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "new": "SET NODE_ENV=test &&  ",
-    "test": "SET NODE_ENV=test&& sequelize db:migrate:undo:all  && sequelize db:migrate  && mocha ./api/server/test/test.js --timeout 20000 --exit",
+    "test": "SET NODE_ENV=test&& sequelize db:migrate:undo:all  && sequelize db:migrate  && nyc mocha ./api/server/test/test.js --timeout 20000 --exit",
     "dev": "nodemon --exec node ./api/index.js",
     "start": "node ./api/index.js",
     "build": "npm run clean && NODE_ENV=production"
@@ -23,7 +23,8 @@
     "pg-hstore": "2.3.3",
     "sequelize": "6.3.5",
     "sequelize-cli": "^6.2.0",
-    "util": "0.12.3"
+    "util": "0.12.3",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -32,6 +33,10 @@
     "eslint-config-airbnb-base": "14.2.1",
     "eslint-plugin-import": "2.22.1",
     "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
     "should": "^13.2.3"
+  },
+  "nyc": {
+    "exclude": ["**/*test.js", "*/server/src/config/*.js", "*/server/logger.js"]
   }
 }

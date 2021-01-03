@@ -18,17 +18,7 @@ function ValidationError(message) {
 
 util.inherits(ValidationError, Error);
 
-function InternalError(message) {
-    Error.call(this);
-    this.name = 'InternalError';
-    this.message = message || 'An unknown error occurred';
-    this.status = 500;
-}
-
-util.inherits(InternalError, Error);
-
 module.exports = {
     RecordNotFoundError,
-    ValidationError,
-    InternalError
+    ValidationError
 }

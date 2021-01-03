@@ -7,8 +7,9 @@ const basename = path.basename(__filename);
 
 const config = require(__dirname + '/../config/config.js');
 const db = {};
+const logger = require('../../logger');
 
-console.log('Connecting to database: ' + config.postgresdb.url);
+logger.info('Connecting to database: ' + config.postgresdb.url);
 
 const sequelize = new Sequelize(config.postgresdb.url, config.postgresdb.options);
 

@@ -1,6 +1,7 @@
 const errors = require('./error');
 
 const errorClasses = Object.keys(errors);
+const logger = require('../logger');
 
 module.exports = (err, req, res, next) => {
     let status, message;
@@ -9,7 +10,7 @@ module.exports = (err, req, res, next) => {
         status = err.status;
         message = err.message;
     } else {
-        console.log('Unxpected server error: ' + err.message);
+        logger.error('Unxpected server error: ' + err.message);
         status = 500;
     }
     res.status(status).json({message});

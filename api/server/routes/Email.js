@@ -3,7 +3,7 @@ const emailService = require('../services/Email');
 const emailStatusRequest = require('../services/EmailStatusRequest');
 const error = require('../errors/error');
 const moment = require('moment');
-const db = require('../src/models');
+const logger = require('../logger');
 
 const MAX_STATUS_REQUESTS_PER_HOUR = 10
 
@@ -49,11 +49,11 @@ const handleRateLimit = (email, invokedAt) => {
             moment(invokedAt).startOf('hour').add(1, 'hour'))
     }).then(requestCount => {
         if (requestCount > MAX_STATUS_REQUESTS_PER_HOUR) {
-            console.log(`Marking ${email} as risky`);
+            logger.warn(`Marking ${email} as risky`);
             return emailService.updateEmailStatus(email, 'RISKY');
         }
     }).catch(err => {
-        console.log('Rate limiting handling failed due to error: ' + err.stack.toString());
+        logger.error('Rate limiting handling failed due to error: ' + err.stack.toString());
     }).finally(() => {
         return exceededLimit;
     });

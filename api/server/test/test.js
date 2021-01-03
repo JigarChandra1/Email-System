@@ -284,4 +284,19 @@ describe('Email endpints', () => {
             done();
         });
     });
+
+    it('Should NOT be able to delete a non-existing email address', done => {
+        chai.request(app)
+        .delete(`/api/email/nonexisting%40mail.com`)
+        .set('Accept', 'application/json')
+        .end((err, res) => {
+            if (err) {
+                done(err);
+                return;
+            }
+
+            expect(res.status).to.equal(404);
+            done();
+        });
+    });
 });
