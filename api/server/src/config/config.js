@@ -10,7 +10,7 @@ module.exports = {
       dialectOptions: {
         multipleStatements: true,
         ssl: true,
-        rejectUnauthorized: true
+        rejectUnauthorized: false
       }
     }
   }
