@@ -8,7 +8,8 @@ module.exports = {
     options: {
       dialect: "postgres",
       dialectOptions: {
-        multipleStatements: true
+        multipleStatements: true,
+        ssl: true
       }
     }
   }
